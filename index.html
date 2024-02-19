@@ -12,6 +12,15 @@
     <video id="stream" style="width: 100vw; height: 100vh;" />
     <script>
         console.log("Hello");
+        const stream = await navigator.mediaDevices.getUserMedia({
+            video: {
+                facingMode: { ideal: 'environment' }
+            },
+            audio: false
+            });
+        const videoEl = document.querySelector('#stream');
+        videoEl.srcObject = stream;
+        await videoEl.play();
     </script>
 
 </body>

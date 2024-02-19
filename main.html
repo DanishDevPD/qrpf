@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+  
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Capture QR Code</title>
+	<link rel="stylesheet" href="/styles/app.css"/>
+</head>
+  <body>
+  	<div class="wsk-layout">
+  		<div class="wsk-layout__content">
+  			<div id="camera" class="Camera">
+  				<canvas class="Camera-display" width="354" height="354"/>
+  				<div class="CameraRealtime">
+  					<video class="Camera-video" muted="" autoplay="" playsinline="" style="transform: translate(-50%, -50%) scale(1.91458);"/>
+  					<div class="Camera-instructions">Point at a QR code</div>
+  					<div class="Camera-toggle wsk-button wsk-button--fab" style="display: none;">
+  						<input type="checkbox" id="checkbox-1" class="Camera-toggle-input">
+  							<label for="checkbox-1">
+  								<img class="front" src="/images/ic_camera_front_24px.svg">
+  									<img class="rear" src="/images/ic_camera_rear_24px.svg"/>
+  								</div>
+  							</div>
+  							<div class="Camera-overlay" style="border-width: 120.5px 32px;"/>
+  							<div id="camera-fallback" class="CameraFallback hidden">
+  								<form method="post" action="/scan-image" class="CameraFallback-form">
+  									<input type="file" accept="image/*" capture="camera" id="qrcode-input" name="qrcode" class="CameraFallback-input">
+  										<label for="qrcode-input">
+  											<img src="/images/ic_file_upload_24px.svg"/>
+  											<img class="CameraFallback-image"/>
+  										</div>
+  									</div>
+  									<div id="qrcode" class="wsk-card wsk-shadow--z3 QRCodeSuccessDialog">
+  										<div class="wsk-card--heading">
+  											<span class="wsk-card--heading-text">QR Code found</span>
+  										</div>
+  										<div class="wsk-card--lower QRCodeSuccessDialog-data"/>
+  										<div class="wsk-card--bottom">
+  											<div>
+  												<button class="wsk-button QRCodeSuccessDialog-navigate">Open</button>
+  												<button class="wsk-button QRCodeSuccessDialog-callback hidden">
+  													<div class="QRCodeSuccessDialogCallback-name">Return</div>
+  													<div class="QRCodeSuccessDialogCallback-domain"/>
+  												</button>
+  												<button class="wsk-button QRCodeSuccessDialog-ignore">Ignore</button>
+  												<button class="wsk-button QRCodeSuccessDialog-share">Share</button>
+  											</div>
+  										</div>
+  									</div>
+  								</div>
+  							</div>
+  	
+  	
+  	<script src="/scripts/main.min.js"/>
+  	
+  </body>
+</html>

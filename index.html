@@ -12,15 +12,17 @@
     <video id="stream" style="width: 100vw; height: 100vh;" />
     <script>
         console.log("Hello");
-        const stream = await navigator.mediaDevices.getUserMedia({
-            video: {
-                facingMode: { ideal: 'environment' }
-            },
-            audio: false
-            });
-        const videoEl = document.querySelector('#stream');
-        videoEl.srcObject = stream;
-        await videoEl.play();
+        // check compatibility
+        if (!("BarcodeDetector" in globalThis)) {
+          console.log("Barcode Detector is not supported by this browser.");
+        } else {
+          console.log("Barcode Detector supported!");
+        
+          // create new detector
+          const barcodeDetector = new BarcodeDetector({
+            formats: ["code_39", "codabar", "ean_13"],
+          });
+        }
     </script>
 
 </body>
